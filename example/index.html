@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>vue-fixed-tabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    * { box-sizing: border-box; }
+    html { font-size: 20px; }
+    body { margin: 0; font-size: .8rem; }
+    .tabs-block { position: relative; }
+    .tabs-title { display: -webkit-flex; display: flex; background-color: #fff; text-align: center; width: 100%; left: 0; top: 0; z-index: 1000 }
+    .tabs-title .tab { -webkit-flex: 1; flex: 1; padding: .5rem; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+    .tabs-title .tab:first-child { border-left: 0; }
+    .tabs-title .tab.active { border-bottom: 3px solid #08acaa; }
+    .tabs-content { background-color: #fff;  }
+    .content-block { padding: .75rem; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div style="height:300px;background:#eee">Some content</div>
+  <v-tabs tabs-fixed="true" tabs-offset="0" tabs-init="0" tabs-classes="classA,classB" tab-click="activeTab">
+    <v-tab tab-title="Tab1" tab-id="tab1">
+      <div class="content-block">
+        <p style="height:600px">Tab 1 content start</p>
+        <p >Tab 1 content end</p>
+      </div>
+    </v-tab>
+    <v-tab tab-title="Tab2" tab-id="tab2">
+      <div class="content-block">
+        <p style="height:300px">Tab 2 content start</p>
+        <p >Tab 2 content end</p>
+      </div>
+    </v-tab>
+    <v-tab tab-title="Tab3" tab-id="tab3">
+      <div class="content-block">
+        <p style="height:1000px">Tab 3 content start</p>
+        <p >Tab 3 content end</p>
+      </div>
+    </v-tab>
+  </v-tabs>
+  <div style="height:1000px;background:#eee">Some content</div>
+
+</div>
+<script src="https://cdn.css.net/libs/vue/1.0.10/vue.min.js"></script>
+<script src="../vue-fixed-tabs.js"></script>
+<script>
+  var app = document.querySelector('.app')
+  new Vue({
+    el: app,
+    events: {
+      activeTab: function(tabid) {
+        console.log(tabid + ' is now active')
+      }
+    }
+  })
+</script>
+</body>
+</html>
