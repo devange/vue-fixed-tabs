@@ -44,7 +44,7 @@
     "build": "rollup -c",
     "test": "npm run build && xo src/**/* --no-semicolon"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "xo": {
     "envs": [
       "browser"

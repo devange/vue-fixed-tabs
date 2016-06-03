@@ -82,7 +82,9 @@ export default {
 
     let directive = this
     let element = directive.el
+    let tabs = element.childNodes[0]
 
+    directive.tabsStylePosition = getComputedStyle(tabs).position
     directive.scrollEventTarget = getScrollEventTarget(element)
     // directive.scrollListener = directive.doCheck.bind(directive)
     directive.scrollListener = throttle(directive.doCheck.bind(directive), 100)
@@ -116,7 +118,9 @@ export default {
       }
       element.style.paddingTop = tabs.offsetHeight + 'px'
     } else {
-      tabs.style.position = 'static'
+      tabs.style.position = this.tabsStylePosition
+      tabs.style.top = 'auto'
+      tabs.style.bottom = 'auto'
       element.style.paddingTop = 0
     }
   },
